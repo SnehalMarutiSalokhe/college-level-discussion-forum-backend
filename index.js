@@ -16,9 +16,9 @@ app.use(express.json());
 app.use(
   cors({
     // origin: "http://localhost:3002",
-    origin:"https://college-level-discussion-forum-kaavytq8y.vercel.app/",
+    origin:"https://college-level-discussion-forum-kaavytq8y.vercel.app",
     credentials: true,
-    // methods: ["GET", "POST"],
+     methods: ["GET", "POST"],
 
   })
 );
@@ -235,7 +235,7 @@ const server = app.listen(PORT, () => {
 const io = new Server(server, {
   secure: true,
   cors: {
-    origin:"https://college-level-discussion-forum-kaavytq8y.vercel.app/",
+    origin:"https://college-level-discussion-forum-kaavytq8y.vercel.app",
     // origin: "http://localhost:3002",
     methods: ["GET", "POST"],
     credentials: true,
