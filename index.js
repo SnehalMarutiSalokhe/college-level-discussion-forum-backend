@@ -15,13 +15,12 @@ app.use(express.json());
 
 app.use(
   cors({
-    // origin: "http://localhost:3002",
-    origin:"http://college-level-discussion-forum.vercel.app",
+    origin: "https://college-level-discussion-forum.vercel.app",
     credentials: true,
-     methods: ["GET", "POST"],
-
+    methods: ["GET", "POST"],
   })
 );
+
 
 app.get("/", (req, res) => {
   res.send("Hello World");
@@ -232,15 +231,25 @@ const server = app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
+// const io = new Server(server, {
+//   secure: true,
+//   cors: {
+//     origin:"http://college-level-discussion-forum.vercel.app",
+//     // origin: "http://localhost:3002",
+//     methods: ["GET", "POST"],
+//     credentials: true,
+//   },
+// });
+
 const io = new Server(server, {
   secure: true,
   cors: {
-    origin:"http://college-level-discussion-forum.vercel.app",
-    // origin: "http://localhost:3002",
+    origin: "https://college-level-discussion-forum.vercel.app",
     methods: ["GET", "POST"],
     credentials: true,
   },
 });
+
 
 io.on("connection", (socket) => {
   console.log("socket connected");
